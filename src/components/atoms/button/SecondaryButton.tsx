@@ -5,11 +5,11 @@ type Props = {
   children: string;
 };
 
-export const PrimaryButton: FC<Props> = (props) => {
+export const SecondaryButton: FC<Props> = (props) => {
   const { children } = props;
   return (
     <>
-      <Button colorScheme="teal">{children}</Button>
+      <Button colorScheme="green">{children}</Button>
     </>
   );
 };
