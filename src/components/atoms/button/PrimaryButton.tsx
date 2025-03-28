@@ -9,7 +9,9 @@ export const PrimaryButton: FC<Props> = (props) => {
   const { children } = props;
   return (
     <>
-      <Button colorScheme="teal">{children}</Button>
+      <Button colorScheme="teal" m={4}>
+        {children}
+      </Button>
     </>
   );
 };
