@@ -1,14 +1,14 @@
-import { useLocation } from "react-router-dom";
+import { useContext } from "react";
 import { User } from "../../types/User";
 import { PrimaryButton } from "../atoms/button/PrimaryButton";
 import { SecondaryButton } from "../atoms/button/SecondaryButton";
 import { SearchInput } from "../molecules/SearchInput";
 import { UserCard } from "../organisms/user/UserCard";
 import { DefaultLayout } from "../templates/DefaultLayout";
-import { useContext } from "react";
 import { UserContext } from "../../provider/UserProvider";
 
 export const Users = () => {
+  const context = useContext(UserContext);
   const user1 = {
     name: "あああ",
     mail: "aaa@mail.com",
@@ -21,11 +21,9 @@ export const Users = () => {
     .fill(null)
     .map(() => ({ ...user1 }));
 
-  const location = useLocation();
-  const isAdmin = location.state?.isAdmin;
-
-  const a = useContext(UserContext);
-  console.log(a);
+  const onClickSwitch = () => {
+    context?.setIsAdmin(!context.isAdmin);
+  };
 
   return (
     <>
@@ -36,9 +34,11 @@ export const Users = () => {
         <br />
         <SearchInput />
         <br />
+        <SecondaryButton onClick={onClickSwitch}>切り替え</SecondaryButton>
+        <br />
         <br />
         {users.map((user: User, index) => {
-          return <UserCard key={index} user={user} isAdmin={isAdmin} />;
+          return <UserCard key={index} user={user} />;
         })}
       </DefaultLayout>
     </>

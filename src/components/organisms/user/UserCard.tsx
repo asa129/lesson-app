@@ -5,14 +5,13 @@ import { UserIconWithName } from "../../molecules/UserIconWithName";
 
 type Props = {
   user: User;
-  isAdmin: true;
 };
 
 export const UserCard: FC<Props> = (props) => {
-  const { user, isAdmin } = props;
+  const { user } = props;
   return (
     <Card>
-      <UserIconWithName userName={user.name} isAdmin={isAdmin} />
+      <UserIconWithName userName={user.name} />
       <Table>
         <Tr>
           <Td>メール</Td>
