@@ -5,6 +5,8 @@ import { SecondaryButton } from "../atoms/button/SecondaryButton";
 import { SearchInput } from "../molecules/SearchInput";
 import { UserCard } from "../organisms/user/UserCard";
 import { DefaultLayout } from "../templates/DefaultLayout";
+import { useContext } from "react";
+import { UserContext } from "../../provider/UserProvider";
 
 export const Users = () => {
   const user1 = {
@@ -21,7 +23,9 @@ export const Users = () => {
 
   const location = useLocation();
   const isAdmin = location.state?.isAdmin;
-  console.log(isAdmin);
+
+  const a = useContext(UserContext);
+  console.log(a);
 
   return (
     <>
