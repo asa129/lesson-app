@@ -5,11 +5,11 @@ import { HeaderOnlyLayout } from "../templates/HeaderOnlyLayout";
 export const Top = () => {
   const navigate = useNavigate();
   const onClickUserManagement = () => {
-    navigate("/users");
+    navigate("/users", { state: { isAdmin: true } });
   };
 
   const onClickGeneral = () => {
-    navigate("/users");
+    navigate("/users", { state: { isAdmin: false } });
   };
 
   return (

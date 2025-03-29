@@ -1,12 +1,13 @@
-import { Box, Image, Stack } from "@chakra-ui/react";
+import { Box, Image, Link, Stack } from "@chakra-ui/react";
 import { FC } from "react";
 
 type Props = {
   userName: string;
+  isAdmin: boolean;
 };
 
 export const UserIconWithName: FC<Props> = (props) => {
-  const { userName } = props;
+  const { userName, isAdmin } = props;
   return (
     <>
       <Stack align="center">
@@ -19,6 +20,7 @@ export const UserIconWithName: FC<Props> = (props) => {
           />
         </Box>
         <Box position="relative">{userName}</Box>
+        {isAdmin === true ? <Link>編集</Link> : null}
       </Stack>
     </>
   );

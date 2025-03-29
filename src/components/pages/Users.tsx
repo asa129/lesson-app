@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { User } from "../../types/User";
 import { PrimaryButton } from "../atoms/button/PrimaryButton";
 import { SecondaryButton } from "../atoms/button/SecondaryButton";
@@ -18,6 +19,10 @@ export const Users = () => {
     .fill(null)
     .map(() => ({ ...user1 }));
 
+  const location = useLocation();
+  const isAdmin = location.state?.isAdmin;
+  console.log(isAdmin);
+
   return (
     <>
       <DefaultLayout>
@@ -29,7 +34,7 @@ export const Users = () => {
         <br />
         <br />
         {users.map((user: User, index) => {
-          return <UserCard key={index} user={user} />;
+          return <UserCard key={index} user={user} isAdmin={isAdmin} />;
         })}
       </DefaultLayout>
     </>
